@@ -29,6 +29,7 @@ body {
 main {
   width: 85%;
   margin: 2rem auto;
+  max-width: 481px;
 }
 
 header {
@@ -101,6 +102,11 @@ button {
   margin: 1rem 0;
   border-radius: 15px;
   padding: 2rem 1.5rem;
+  display: flex;
+}
+
+.lg-photo {
+  display: none;
 }
 
 .profile {
@@ -143,8 +149,7 @@ h2 {
   display: flex;
   background-color: var(--background-dark);
   align-items: center;
-  justify-content: center;
-  gap: 1.25rem;
+  justify-content: space-around;
   text-align: center;
   border-radius: 10px;
   margin: 1.45rem 0;
@@ -175,4 +180,25 @@ ul li {
   font-weight: 400;
   font-size: 13px;
   line-height: 19px;
+  color: #ffffff;
+}
+
+li span {
+  width: 20px;
+}
+
+li img {
+  filter: brightness(0) invert(1);
+}
+
+@media (min-width: 1280px) {
+  main {
+    max-width: 730px;
+  }
+
+  .profile div {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
 }
