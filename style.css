@@ -7,6 +7,7 @@
   --text-light: hsl(0, 0%, 100%);
   --background-primary-dark: hsl(222, 41%, 20%);
   --primary-blue: hsl(212, 100%, 50%);
+  --primary-red: hsl(0, 91%, 62%);
 }
 
 * {
@@ -63,9 +64,20 @@ section {
   margin-right: 0.55rem;
 }
 
+.search-bar small {
+  color: var(--primary-red);
+  display: none;
+}
+
 input {
   background-color: transparent;
   border: none;
+  width: 70%;
+  padding: 1rem 0;
+}
+
+input:focus-visible {
+  outline: none;
 }
 
 input:-ms-input-placeholder {
@@ -80,6 +92,10 @@ input::-webkit-input-placeholder {
   font-size: 13px;
   line-height: 25px;
   color: #ffffff;
+}
+
+input:hover {
+  cursor: pointer;
 }
 
 button {
@@ -101,12 +117,23 @@ button {
   background-color: var(--background-primary-dark);
   margin: 1rem 0;
   border-radius: 15px;
-  padding: 2rem 1.5rem;
+  padding: 1.5rem;
   display: flex;
+  justify-content: center;
+}
+
+.search-result > div {
+  width: 100%;
 }
 
 .lg-photo {
   display: none;
+}
+
+.avatar {
+  object-fit: contain;
+  width: 70px;
+  border-radius: 50%;
 }
 
 .profile {
@@ -196,9 +223,54 @@ li img {
     max-width: 730px;
   }
 
+  .search-result {
+    padding: 2.75rem 3rem;
+    gap: 2.25rem;
+    justify-content: flex-start;
+  }
+
+  .search-result > div {
+    width: 70%;
+  }
+
+  .sm-photo {
+    display: none;
+  }
+
+  .lg-photo {
+    display: block;
+    align-self: flex-start;
+  }
+
+  .avatar {
+    width: 120px;
+  }
+
+  .profile {
+    gap: 1.45rem;
+  }
+
   .profile div {
     display: flex;
     justify-content: space-between;
     width: 100%;
+  }
+
+  .name {
+    font-size: 26px;
+    line-height: 39px;
+  }
+
+  ul {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-flow: row dense;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 22px;
+  }
+
+  .twitter {
+    order: 1;
   }
 }

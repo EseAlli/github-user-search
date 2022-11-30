@@ -25,21 +25,27 @@
         </p>
       </header>
       <section>
-        <div class="search-bar">
+        <form class="search-bar">
           <img
             src="./assets/icon-search.svg"
             alt="search"
             class="search-icon"
           />
-          <input placeholder="Search GitHub username..." type="text" />
-          <button>Search</button>
-        </div>
+
+          <input
+            placeholder="Search GitHub username..."
+            type="text"
+            class="search-query"
+          />
+          <small>No results</small>
+          <button class="search-btn" type="submit">Search</button>
+        </form>
 
         <div class="search-result">
-          <img class="lg-photo" />
+          <img class="lg-photo avatar" />
           <div>
             <div class="profile">
-              <img class="sm-photo" />
+              <img class="sm-photo avatar" />
               <div>
                 <h2 class="name">
                   The Octocat
@@ -68,25 +74,25 @@
               </div>
             </div>
             <ul>
-              <li>
+              <li class="location">
                 <span
                   ><img src="./assets/icon-location.svg" alt="location"
                 /></span>
                 San Francisco
               </li>
-              <li>
+              <li class="website">
                 <span
                   ><img src="./assets/icon-website.svg" alt="website"
                 /></span>
                 https://github.blog
               </li>
-              <li>
+              <li class="twitter">
                 <span
                   ><img src="./assets/icon-twitter.svg" alt="icon-twitter"
                 /></span>
                 Not Available
               </li>
-              <li>
+              <li class="company">
                 <span
                   ><img src="./assets/icon-company.svg" alt="icon-company"
                 /></span>
@@ -97,5 +103,6 @@
         </div>
       </section>
     </main>
+    <script src="./index.js"></script>
   </body>
 </html>
