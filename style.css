@@ -22,6 +22,9 @@ body {
   font-family: "Space Mono", monospace;
   background: var(--background-dark);
   color: var(--text-light);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
 }
 
 .light-mode {
