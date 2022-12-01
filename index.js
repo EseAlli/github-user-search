@@ -29,6 +29,7 @@ function queryData(query) {
     if (message) {
       results.style.display = "block";
     } else {
+      results.style.display = "none";
       const {
         bio,
         avatar_url,
@@ -41,6 +42,7 @@ function queryData(query) {
         login,
         company,
         location,
+        blog,
       } = JSON.parse(this.responseText);
       let date = new Date(created_at);
       bio && (bioText.innerHTML = bio);
@@ -51,8 +53,17 @@ function queryData(query) {
       twitter.lastChild.nodeValue = twitter_username
         ? twitter_username
         : "Not Available";
+      !twitter_username && twitter.classList.add("inactive");
+      twitter_username && twitter.classList.remove("inactive");
       locationText.lastChild.nodeValue = location ? location : "Not Available";
+      !location && locationText.classList.add("inactive");
+      location && locationText.classList.remove("inactive");
       companyText.lastChild.nodeValue = company ? company : "Not Available";
+      !company && companyText.classList.add("inactive");
+      company && companyText.classList.remove("inactive");
+      website.querySelector("a").innerHTML = blog;
+      website.querySelector("a").href = blog;
+
       user.firstChild.nodeValue = name;
       dateJoined.innerHTML = `Joined ${date
         .toDateString()

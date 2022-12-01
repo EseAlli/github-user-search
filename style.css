@@ -8,6 +8,8 @@
   --background-primary-dark: hsl(222, 41%, 20%);
   --primary-blue: hsl(212, 100%, 50%);
   --primary-red: hsl(0, 91%, 62%);
+  --secondary-blue: hsl(212, 100%, 69%);
+  --pale-blue: hsl(222, 44%, 70%);
 }
 
 * {
@@ -46,6 +48,26 @@ header p {
   gap: 1rem;
 }
 
+.light:hover {
+  color: var(--pale-blue);
+  cursor: pointer;
+}
+
+.icon {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background-size: cover;
+}
+
+.light-icon {
+  background-image: url(./assets/icon-sun.svg);
+}
+
+.light:hover .light-icon {
+  background-image: url(./assets//002-sun.svg);
+}
+
 section {
   margin: 2.185rem 0;
 }
@@ -67,6 +89,7 @@ section {
 .search-bar small {
   color: var(--primary-red);
   display: none;
+  margin-right: 6px;
 }
 
 input {
@@ -74,6 +97,8 @@ input {
   border: none;
   width: 70%;
   padding: 1rem 0;
+  color: #ffffff;
+  caret-color: var(--primary-blue);
 }
 
 input:focus-visible {
@@ -111,6 +136,11 @@ button {
   font-size: 14px;
   line-height: 21px;
   font-family: "Space Mono", monospace;
+}
+
+button:hover {
+  cursor: pointer;
+  background-color: var(--secondary-blue);
 }
 
 .search-result {
@@ -216,6 +246,20 @@ li span {
 
 li img {
   filter: brightness(0) invert(1);
+}
+
+.inactive {
+  opacity: 0.6;
+}
+
+a {
+  text-decoration: none;
+  color: #ffffff;
+}
+
+.website a:hover {
+  cursor: pointer;
+  text-decoration: underline;
 }
 
 @media (min-width: 1280px) {
