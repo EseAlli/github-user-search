@@ -13,6 +13,8 @@ const website = document.querySelector(".website");
 const user = document.querySelector(".name");
 const dateJoined = document.querySelector(".date-joined");
 const results = document.querySelector("small");
+const darkCtrl = document.querySelector(".dark");
+const lightCtrl = document.querySelector(".light");
 
 document.onload = queryData("octocat");
 
@@ -79,3 +81,15 @@ function queryData(query) {
   xhttp.getResponseHeader("Content-type", "application/json");
   xhttp.send();
 }
+
+lightCtrl.addEventListener("click", function () {
+  document.body.classList.replace("dark-mode", "light-mode");
+  lightCtrl.style.display = "none";
+  darkCtrl.style.display = "block";
+});
+
+darkCtrl.addEventListener("click", function () {
+  document.body.classList.replace("light-mode", "dark-mode");
+  darkCtrl.style.display = "none";
+  lightCtrl.style.display = "block";
+});

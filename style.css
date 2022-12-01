@@ -32,6 +32,11 @@ body {
   color: var(--text-dark);
 }
 
+.dark-mode {
+  background-color: var(--background-dark);
+  color: var(--text-light);
+}
+
 main {
   width: 85%;
   margin: 2rem auto;
@@ -54,6 +59,10 @@ header p {
 .light:hover {
   color: var(--pale-blue);
   cursor: pointer;
+}
+
+.dark {
+  display: none;
 }
 
 .icon {
