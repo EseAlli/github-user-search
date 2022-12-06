@@ -18,6 +18,10 @@ const darkCtrl = document.querySelector(".dark");
 const lightCtrl = document.querySelector(".light");
 const icons = Array.from(document.querySelectorAll("li img"));
 
+!(
+  window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches
+) && setLightMode();
+
 document.onload = queryData("octocat");
 
 form.addEventListener("submit", (event) => {
@@ -84,7 +88,11 @@ function queryData(query) {
   xhttp.send();
 }
 
-lightCtrl.addEventListener("click", function () {
+lightCtrl.addEventListener("click", setLightMode);
+
+darkCtrl.addEventListener("click", setDarkMode);
+
+function setLightMode() {
   root.setProperty("--bg-color", "#F6F8FF");
   root.setProperty("--text-color", "#4B6A9B");
   root.setProperty("--result-bg", "#FEFEFE");
@@ -95,9 +103,9 @@ lightCtrl.addEventListener("click", function () {
 
   lightCtrl.style.display = "none";
   darkCtrl.style.display = "flex";
-});
+}
 
-darkCtrl.addEventListener("click", function () {
+function setDarkMode() {
   root.setProperty("--bg-color", "#141D2F");
   root.setProperty("--text-color", "#FFFFFF");
   root.setProperty("--result-bg", "#1E2A47");
@@ -108,4 +116,4 @@ darkCtrl.addEventListener("click", function () {
 
   darkCtrl.style.display = "none";
   lightCtrl.style.display = "flex";
-});
+}
