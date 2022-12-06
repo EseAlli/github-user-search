@@ -32,7 +32,7 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
+- Solution URL: [https://www.frontendmentor.io/solutions/github-user-search-app-cAhBkquxAf](https://www.frontendmentor.io/solutions/github-user-search-app-cAhBkquxAf)
 - Live Site URL: [https://esealli.github.io/github-user-search](https://esealli.github.io/github-user-search)
 
 ## My process
