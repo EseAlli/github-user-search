@@ -1,3 +1,4 @@
+const root = document.documentElement.style;
 const searchBtn = document.querySelector(".search-btn");
 const form = document.querySelector(".search-bar");
 const bioText = document.querySelector(".bio");
@@ -15,6 +16,7 @@ const dateJoined = document.querySelector(".date-joined");
 const results = document.querySelector("small");
 const darkCtrl = document.querySelector(".dark");
 const lightCtrl = document.querySelector(".light");
+const icons = Array.from(document.querySelectorAll("li img"));
 
 document.onload = queryData("octocat");
 
@@ -83,13 +85,27 @@ function queryData(query) {
 }
 
 lightCtrl.addEventListener("click", function () {
-  document.body.classList.replace("dark-mode", "light-mode");
+  root.setProperty("--bg-color", "#F6F8FF");
+  root.setProperty("--text-color", "#4B6A9B");
+  root.setProperty("--result-bg", "#FEFEFE");
+  root.setProperty("--header", "#222731");
+  icons.forEach((element) => {
+    element.classList.add("light-mode");
+  });
+
   lightCtrl.style.display = "none";
-  darkCtrl.style.display = "block";
+  darkCtrl.style.display = "flex";
 });
 
 darkCtrl.addEventListener("click", function () {
-  document.body.classList.replace("light-mode", "dark-mode");
+  root.setProperty("--bg-color", "#141D2F");
+  root.setProperty("--text-color", "#FFFFFF");
+  root.setProperty("--result-bg", "#1E2A47");
+  root.setProperty("--header", "#FFFFFF");
+  icons.forEach((element) => {
+    element.classList.remove("light-mode");
+  });
+
   darkCtrl.style.display = "none";
-  lightCtrl.style.display = "block";
+  lightCtrl.style.display = "flex";
 });
