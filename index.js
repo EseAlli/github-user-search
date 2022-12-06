@@ -48,7 +48,7 @@ function queryData(query) {
         created_at,
         name,
         login,
-        company,
+        company: [at, ...company],
         location,
         blog,
       } = JSON.parse(this.responseText);
@@ -58,18 +58,31 @@ function queryData(query) {
       repos.innerHTML = public_repos;
       followersText.innerHTML = followers;
       followingText.innerHTML = following;
-      twitter.lastChild.nodeValue = twitter_username
+      twitter.querySelector("a").innerHTML = twitter_username
         ? twitter_username
         : "Not Available";
       !twitter_username && twitter.classList.add("inactive");
       twitter_username && twitter.classList.remove("inactive");
+      twitter_username &&
+        (twitter.querySelector(
+          "a"
+        ).href = `https://twitter.com/${twitter_username}`);
+
       locationText.lastChild.nodeValue = location ? location : "Not Available";
       !location && locationText.classList.add("inactive");
       location && locationText.classList.remove("inactive");
-      companyText.lastChild.nodeValue = company ? company : "Not Available";
+      companyText.querySelector("a").innerHTML = company
+        ? `@${company.join("")}`
+        : "Not Available";
       !company && companyText.classList.add("inactive");
       company && companyText.classList.remove("inactive");
-      website.querySelector("a").innerHTML = blog;
+      company &&
+        (companyText.querySelector(
+          "a"
+        ).href = `https://github.com/${company.join("")}`);
+      website.querySelector("a").innerHTML = blog ? blog : "Not Available";
+      !blog && website.classList.add("inactive");
+      blog && website.classList.remove("inactive");
       website.querySelector("a").href = blog;
 
       user.firstChild.nodeValue = name;
